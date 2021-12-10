@@ -9,6 +9,10 @@ def are_files_equal(file_url: str, *file_urls: str) -> bool:
 
 
 if __name__ == "__main__":
-    files = [f.strip() for f in open("files.txt").readlines()]
-    print(are_headers_equal(*files))
-    print(are_files_equal(*files))
+    assert are_headers_equal("https://www.adriangb.com/test/1.csv", "https://www.adriangb.com/test/2.csv") == True
+    assert are_headers_equal("https://www.adriangb.com/test/1.csv", "https://www.adriangb.com/test/3.csv") == False
+    assert are_headers_equal("https://www.adriangb.com/test/1.csv", "https://www.adriangb.com/test/4.csv") == True
+
+    assert are_files_equal("https://www.adriangb.com/test/1.csv", "https://www.adriangb.com/test/2.csv") == True
+    assert are_files_equal("https://www.adriangb.com/test/1.csv", "https://www.adriangb.com/test/3.csv") == False
+    assert are_files_equal("https://www.adriangb.com/test/1.csv", "https://www.adriangb.com/test/4.csv") == False
