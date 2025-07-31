@@ -1,7 +1,7 @@
 use reqwest;
 use std::error::Error;
 
-async fn are_headers_equal(file_urls: &[&str]) -> anyhow::Result<bool> {
+async fn are_csv_schemas_equal(file_urls: &[&str]) -> anyhow::Result<bool> {
     todo!();
 }
 
@@ -11,9 +11,9 @@ async fn are_headers_equal(file_urls: &[&str]) -> anyhow::Result<bool> {
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    // Test are_headers_equal
+    // Test are_csv_schemas_equal
     assert_eq!(
-        are_headers_equal(&[
+        are_csv_schemas_equal(&[
             "https://www.adriangb.com/test/1.csv",
             "https://www.adriangb.com/test/2.csv"
         ])
@@ -21,7 +21,7 @@ async fn main() -> anyhow::Result<()> {
         true
     );
     assert_eq!(
-        are_headers_equal(&[
+        are_csv_schemas_equal(&[
             "https://www.adriangb.com/test/1.csv",
             "https://www.adriangb.com/test/3.csv"
         ])
@@ -29,7 +29,7 @@ async fn main() -> anyhow::Result<()> {
         false
     );
     assert_eq!(
-        are_headers_equal(&[
+        are_csv_schemas_equal(&[
             "https://www.adriangb.com/test/1.csv",
             "https://www.adriangb.com/test/4.csv"
         ])
